@@ -93,6 +93,7 @@ let nextId = 12;
 
 function authenticator(req, res, next) {
   const { authorization } = req.headers;
+  console.log(authorization)
   if (authorization === token) {
     next();
   } else {
@@ -102,6 +103,7 @@ function authenticator(req, res, next) {
 
 app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
+  console.log(username, password)
   if (username === "ls" && password === "ls") {
     req.loggedIn = true;
     setTimeout(() => {

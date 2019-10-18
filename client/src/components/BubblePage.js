@@ -9,10 +9,11 @@ const BubblePage = () => {
   const [colorList, setColorList] = useState([]);
 
   useEffect(() => {
+    console.log('Bubblepage useEffect')
     axiosWithAuth()
       .get('colors')
       .then(response => {
-        // console.log(response)
+        console.log(response)
         setColorList(response.data)
       })
       .catch(error => {
