@@ -26,7 +26,8 @@ const ColorList = ({ colors, updateColors }) => {
       .put(`colors/${colorToEdit.id}`, colorToEdit)
       .then(response => {
         // console.log(response)
-        updateColors(colors.filter(color => color.id !== response.data.id))
+        let updatedColor = colors.filter(color => color.id !== response.data.id);
+        updateColors([...updatedColor, response.data]);
         setEditing(false)
       })
       .catch(error => {
